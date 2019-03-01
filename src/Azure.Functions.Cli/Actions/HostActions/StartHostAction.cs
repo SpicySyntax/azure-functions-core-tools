@@ -245,11 +245,7 @@ namespace Azure.Functions.Cli.Actions.HostActions
 
         private async Task PreRunConditions(WorkerRuntime workerRuntime)
         {
-            if (workerRuntime == WorkerRuntime.python)
-            {
-                PythonHelpers.VerifyVirtualEnvironment();
-            }
-            else if (workerRuntime == WorkerRuntime.dotnet && !NoBuild)
+            if (workerRuntime == WorkerRuntime.dotnet && !NoBuild)
             {
                 if (DotnetHelpers.CanDotnetBuild())
                 {
